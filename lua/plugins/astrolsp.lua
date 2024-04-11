@@ -86,7 +86,7 @@ return {
     },
     -- customize how language servers are attached
     handlers = {
-      -- rust_analyzer = function(_, opts) require("rust-tools").setup({ server = opts }) end, -- setup rust-tools
+      rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end, -- setup rust-tools
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {

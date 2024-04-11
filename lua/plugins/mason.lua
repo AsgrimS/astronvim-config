@@ -6,6 +6,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         -- JavaScript + HTML + CSS
+        "eslint",
         "svelte",
         "tsserver",
         "angularls",
@@ -36,7 +37,6 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         -- JavaScript + other
         "prettierd",
-        "eslint_d",
         -- Bash
         "shfmt",
         -- SQL

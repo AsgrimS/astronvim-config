@@ -1,6 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
-
 ---@type LazySpec
 return {
   -- use mason-lspconfig to configure LSP installations
@@ -8,12 +5,9 @@ return {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        -- Lua
-        "lua_ls",
         -- JavaScript + HTML + CSS
         "svelte",
         "tsserver",
-        "eslint_d",
         "angularls",
         "cssls",
         "tailwindcss",
@@ -29,8 +23,6 @@ return {
         "bashls",
         -- YAML
         "yamlls",
-        -- TOML
-        "taplo",
         -- Docker
         "dockerls",
         "docker_compose_language_service",
@@ -44,14 +36,11 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         -- JavaScript + other
         "prettierd",
-        --Lua
-        "stylua",
+        "eslint_d",
         -- Bash
         "shfmt",
         -- SQL
         "sqlfluff",
-        -- TOML
-        "taplo",
       })
     end,
   },

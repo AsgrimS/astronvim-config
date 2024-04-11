@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -30,8 +28,14 @@ return {
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
-        -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
-        -- "lua_ls",
+        "lua_ls",
+        "html",
+        "eslint",
+        "tsserver",
+        "cssls",
+        "jsonls",
+        "docker_compose_language_service",
+        "taplo",
       },
       timeout_ms = 1000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -40,21 +44,49 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "lua_ls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      cssls = {
+        settings = {
+          css = {
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+          scss = {
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+          less = {
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+        },
+      },
+      pylsp = {
+        -- After installation run PylspInstall pylsp-mypy pylsp-rope python-lsp-black python-lsp-ruff
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                enabled = false,
+              },
+              rope_autoimport = {
+                enabled = true,
+              },
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
-      -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end
-
-      -- the key is the server that is being setup with `lspconfig`
-      -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
-      -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+      -- rust_analyzer = function(_, opts) require("rust-tools").setup({ server = opts }) end, -- setup rust-tools
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {

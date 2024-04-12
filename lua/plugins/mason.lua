@@ -27,6 +27,8 @@ return {
         -- Docker
         "dockerls",
         "docker_compose_language_service",
+        -- Nix
+        "nil_ls",
       })
     end,
   },
@@ -41,6 +43,8 @@ return {
         "shfmt",
         -- SQL
         "sqlfluff",
+        -- Nix
+        "nixpkgs_fmt",
       })
     end,
   },

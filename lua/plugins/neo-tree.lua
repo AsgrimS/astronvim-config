@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   {
-    "nvim-eno-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
       opts.filesystem.filtered_items = {
         hide_dotfiles = false,

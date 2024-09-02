@@ -43,8 +43,10 @@ return {
       -- end
     },
     -- enable servers that you already have installed without mason
+    -- those have to be installed manually (e.g. on NixOs)
     servers = {
       "lua_ls",
+      "ruff",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields

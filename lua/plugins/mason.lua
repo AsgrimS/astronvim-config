@@ -15,7 +15,7 @@ return {
         "html",
         "prismals",
         -- Python
-        "pylsp",
+        "pyright",
         -- JSON
         "jsonls",
         -- Rust
@@ -45,6 +45,8 @@ return {
         "sqlfluff",
         -- Nix
         "nixpkgs_fmt",
+        -- Python
+        "debugpy",
       })
     end,
   },

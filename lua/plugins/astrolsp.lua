@@ -47,6 +47,7 @@ return {
     servers = {
       "lua_ls",
       "ruff",
+      "basedpyright",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields

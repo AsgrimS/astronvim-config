@@ -15,7 +15,7 @@ return {
         "html",
         "prismals",
         -- Python
-        "pyright",
+        -- "basedpyright", -- uncomment if not installed manually (e.g. NixOs)
         -- JSON
         "jsonls",
         -- Rust
@@ -47,6 +47,7 @@ return {
         "nixpkgs_fmt",
         -- Python
         "debugpy",
+        -- "ruff", -- uncomment if not installed manually (e.g. NixOs)
       })
     end,
   },

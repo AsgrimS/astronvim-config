@@ -71,21 +71,6 @@ return {
           },
         },
       },
-      pylsp = {
-        -- After installation run PylspInstall pylsp-mypy pylsp-rope python-lsp-black python-lsp-ruff
-        settings = {
-          pylsp = {
-            plugins = {
-              pycodestyle = {
-                enabled = false,
-              },
-              rope_autoimport = {
-                enabled = true,
-              },
-            },
-          },
-        },
-      },
     },
     -- customize how language servers are attached
     handlers = {

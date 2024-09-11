@@ -8,7 +8,7 @@ return {
         -- JavaScript + HTML + CSS
         "eslint",
         "svelte",
-        "tsserver",
+        "ts_ls",
         "angularls",
         "cssls",
         "tailwindcss",

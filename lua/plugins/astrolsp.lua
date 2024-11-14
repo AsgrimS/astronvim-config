@@ -48,6 +48,7 @@ return {
       "lua_ls",
       "ruff",
       "basedpyright",
+      "denols",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -71,10 +72,21 @@ return {
           },
         },
       },
+      denols = {
+        root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc"),
+      },
+      ts_ls = {
+        root_dir = require("lspconfig.util").root_pattern "package.json",
+        single_file_support = false,
+      },
+      eslint = {
+        root_dir = require("lspconfig.util").root_pattern("package.json", ".eslintrc.json", ".eslintrc.js"),
+      },
     },
     -- customize how language servers are attached
     handlers = {
       rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end, -- setup rust-tools
+      denols = function(_, opts) require("deno-nvim").setup { server = opts } end,
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {

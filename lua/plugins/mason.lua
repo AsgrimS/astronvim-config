@@ -19,7 +19,7 @@ return {
         -- JSON
         "jsonls",
         -- Rust
-        "rust_analyzer",
+        -- "rust_analyzer",-- uncomment if not installed manually (e.g. NixOs)
         -- Bash
         "bashls",
         -- YAML
@@ -54,8 +54,7 @@ return {
         prettierd = function()
           require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
             condition = function(utils)
-              return utils.root_has_file "package.json"
-                or utils.root_has_file ".prettierrc"
+              return utils.root_has_file ".prettierrc"
                 or utils.root_has_file ".prettierrc.json"
                 or utils.root_has_file ".prettierrc.js"
             end,

@@ -49,6 +49,7 @@ return {
       "ruff",
       "basedpyright",
       "denols",
+      "rust_analyzer",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -74,13 +75,27 @@ return {
       },
       denols = {
         root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc"),
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          "svelte",
+          "json",
+          "md",
+          "html",
+          "css",
+          "yaml",
+        },
       },
       ts_ls = {
-        root_dir = require("lspconfig.util").root_pattern "package.json",
+        root_dir = require("lspconfig.util").root_pattern "tsconfig.json",
         single_file_support = false,
       },
       eslint = {
-        root_dir = require("lspconfig.util").root_pattern("package.json", ".eslintrc.json", ".eslintrc.js"),
+        root_dir = require("lspconfig.util").root_pattern("eslint.config.js", "eslint.config.mjs"),
       },
     },
     -- customize how language servers are attached
